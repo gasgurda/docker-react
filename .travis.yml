@@ -1,0 +1,9 @@
+sudo: required
+service:
+ - docker
+
+before_install:
+ - docker build -t gasgurda/docker-react -f Dockerfile.dev .
+
+scripts:
+ - docker run gasgurda/docker-react npm run test -- --coverage
